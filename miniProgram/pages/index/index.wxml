@@ -1,0 +1,17 @@
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+    <cover-view class="nodrivertips_container"  hidden='{{!showNoDriverTips}}'>
+      <cover-view class="nodrivertips">
+        抱歉，您附近暂时没有空闲的司机
+      </cover-view>
+      <cover-view class="nodrivertips contactus">
+        联系客服
+      </cover-view> 
+    </cover-view>
+  </map>
+</view>
+<view class="rgc_info">
+  <text>{{rgcData.address}}</text>
+  <text>{{rgcData.desc}}</text>
+  <text>{{rgcData.business}}</text>
+</view>

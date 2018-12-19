@@ -1,0 +1,35 @@
+.map_container{
+    height: 75vh;
+    width: 100%;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+.rgc_info {
+    height: 25vh;
+    width: 100%;
+}
+
+.nodrivertips_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50rpx;
+}
+
+.nodrivertips{
+  /* width: 500rpx; */
+  font-size: 25rpx;
+  background-color: white;
+  line-height: 30rpx;
+  height: 30rpx;
+  padding: 10rpx;
+  border-radius:10rpx;
+}
+
+.contactus{
+  color: blue
+}
