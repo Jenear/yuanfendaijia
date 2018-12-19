@@ -33,3 +33,24 @@
 .contactus{
   color: blue
 }
+
+.button{
+  text-align: left
+}
+
+.button::before{
+  content: "出发"
+}
+
+.billtips{
+  text-align: center
+}
+
+.start{
+  position: relative;
+}
+
+.start::before{
+  content: " ";
+  /* background: url('../../img/marker_red.png') */
+}
