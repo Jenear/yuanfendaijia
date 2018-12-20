@@ -4,6 +4,7 @@
   flex-direction: column;
 }
 
+/* 地图模块 */
 .map_container{
     width: 100%;
     height: 70vh;
@@ -12,16 +13,10 @@
 .map {
     height: 100%;
     width: 100%;
+    /* position: relative; */
 }
 
-.rgc_info {
-    height: 30vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
+/* 无空闲司机提示 */
 .nodrivertips_container{
   display: flex;
   flex-direction: row;
@@ -42,15 +37,57 @@
   color: blue;
 }
 
+/* 下单选项 */
+.options_container{
+  display: flex;
+  height: 20%;
+  position: relative;
+  top: 70%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.position_img{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
+}
+
+.user_info_img_container{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 10rpx;
+  border-radius:50rpx;
+  background-color: white;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.user_info_img{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 下单表单模块 */
+.rgc_info {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .billtips{
   text-align: center;
   color: #19be6b;
 }
 
-.start{
-  position: relative;
+.grey{
+  color: #bbbec4;
 }
 
 .normal_button{
   margin-bottom: 20rpx;
 }
+

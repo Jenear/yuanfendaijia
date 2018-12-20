@@ -6,7 +6,8 @@ Page({
     latitude: '',
     longitude: '',
     rgcData: {},
-    showNoDriverTips: true
+    showNoDriverTips: true,
+    isAppointment: false
   },
   makertap: function (e) {
     var that = this;

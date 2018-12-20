@@ -9,12 +9,18 @@
           联系客服
         </cover-view> 
       </cover-view>
+      <cover-view class="options_container">
+        <cover-image class="position_img" src="../../img/imgs_main_location@2x.png" />
+        <cover-view class="user_info_img_container">
+          <cover-image class="user_info_img" src="../../img/user.png" />
+        </cover-view>
+      </cover-view>
     </map>
   </view>
   <view class="rgc_info">
       <i-cell-group>
-        <i-cell i-class="start" title="什刹海公园"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
-        <i-cell title="奥体中心"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
+        <i-cell title="什刹海公园"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
+        <i-cell i-class="grey"  title="请输入目的地"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
       </i-cell-group>
     <view class="billtips">
       约28.0元<i-icon type="feedback_fill" size="25" color="#19be6b" />
