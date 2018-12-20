@@ -1,6 +1,12 @@
+.page_container{
+  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .map_container{
-    height: 75vh;
     width: 100%;
+    height: 70vh;
 }
 
 .map {
@@ -9,8 +15,11 @@
 }
 
 .rgc_info {
-    height: 25vh;
+    height: 30vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .nodrivertips_container{
@@ -21,7 +30,6 @@
 }
 
 .nodrivertips{
-  /* width: 500rpx; */
   font-size: 25rpx;
   background-color: white;
   line-height: 30rpx;
@@ -31,26 +39,18 @@
 }
 
 .contactus{
-  color: blue
-}
-
-.button{
-  text-align: left
-}
-
-.button::before{
-  content: "出发"
+  color: blue;
 }
 
 .billtips{
-  text-align: center
+  text-align: center;
+  color: #19be6b;
 }
 
 .start{
   position: relative;
 }
 
-.start::before{
-  content: " ";
-  /* background: url('../../img/marker_red.png') */
+.normal_button{
+  margin-bottom: 20rpx;
 }

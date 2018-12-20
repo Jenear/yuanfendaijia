@@ -1,30 +1,26 @@
-<view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
-    <cover-view class="nodrivertips_container"  hidden='{{!showNoDriverTips}}'>
-      <cover-view class="nodrivertips">
-        抱歉，您附近暂时没有空闲的司机
+<view  class="page_container">
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+      <cover-view class="nodrivertips_container"  hidden='{{!showNoDriverTips}}'>
+        <cover-view class="nodrivertips">
+          抱歉，您附近暂时没有空闲的司机
+        </cover-view>
+        <cover-view class="nodrivertips contactus">
+          联系客服
+        </cover-view> 
       </cover-view>
-      <cover-view class="nodrivertips contactus">
-        联系客服
-      </cover-view> 
-    </cover-view>
-  </map>
-</view>
-<view class="rgc_info">
-  <!-- <i-button bind:click="handleClick" i-class="button" type="ghost">
-    什刹海公园
-  </i-button>
-  <i-button bind:click="handleClick" type="ghost">
-    奥体中心
-  </i-button> -->
-    <i-cell-group>
-      <i-cell i-class="start" title="什刹海公园"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
-      <i-cell title="奥体中心"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
-    </i-cell-group>
-  <view class="billtips">
-    约28.0元
+    </map>
   </view>
-  <i-button bind:click="handleClick" type="success">
-    一键呼叫
-  </i-button>
+  <view class="rgc_info">
+      <i-cell-group>
+        <i-cell i-class="start" title="什刹海公园"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
+        <i-cell title="奥体中心"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
+      </i-cell-group>
+    <view class="billtips">
+      约28.0元<i-icon type="feedback_fill" size="25" color="#19be6b" />
+    </view>
+    <i-button bind:click="handleClick" i-class="normal_button" type="success">
+      一键呼叫
+    </i-button>
+  </view>
 </view>
