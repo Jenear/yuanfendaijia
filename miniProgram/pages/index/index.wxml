@@ -1,6 +1,6 @@
 <view  class="page_container">
   <view class="map_container">
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" bindregionchange="regionChange">
       <cover-view class="nodrivertips_container"  hidden='{{!showNoDriverTips}}'>
         <cover-view class="nodrivertips">
           抱歉，您附近暂时没有空闲的司机
@@ -20,7 +20,7 @@
   </view>
   <view class="rgc_info">
       <i-cell-group>
-        <i-cell title="什刹海公园"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
+        <i-cell title="{{startAddress}}"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
         <i-cell i-class="grey"  title="请输入目的地"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
       </i-cell-group>
     <view class="billtips">
