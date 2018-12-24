@@ -24,9 +24,9 @@ Page({
     };
     var success = function (data) {
       wxMarkerData = data.wxMarkerData;
-      that.setData({
-        markers: wxMarkerData
-      });
+      // that.setData({
+      //   markers: wxMarkerData
+      // });
       that.setData({
         latitude: wxMarkerData[0].latitude
       });

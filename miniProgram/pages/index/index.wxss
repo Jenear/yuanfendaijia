@@ -13,7 +13,19 @@
 .map {
     height: 100%;
     width: 100%;
-    /* position: relative; */
+    position: relative;
+}
+
+/* 地图中心点图标 */
+.position_center_img {
+  align-self:center;
+  width:40rpx;
+  height:80rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -80rpx; /* img高度的一半*/
+  margin-left: -20rpx;/* img宽度的一半*/
 }
 
 /* 无空闲司机提示 */
