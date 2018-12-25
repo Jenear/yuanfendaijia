@@ -1,52 +1,78 @@
 const bmap = require('../../libs/bmap-wx.min.js');
 const mapId = "map";
+const defaultScale = 14;
+let BMap = null;
 let wxMarkerData = [];
 Page({
   data: {
     markers: [],
     latitude: '',
     longitude: '',
+    centerLongitude: '',
+    centerLatitude: '',
+    //地图缩放级别
+    scale: defaultScale,
     startAddress: '',
     rgcData: {},
     showNoDriverTips: true,
     isAppointment: false
   },
-  // makertap: function (e) {
-  //   var that = this;
-  //   var id = e.markerId;
-  //   that.showSearchInfo(wxMarkerData, id);
-  // },
+
   onLoad: function () {
     var that = this;
-    var BMap = new bmap.BMapWX({
+    BMap = new bmap.BMapWX({
       ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
     });
-    var fail = function (data) {
-      console.log(data)
-    };
-    var success = function (data) {
-      console.log(data)
-      wxMarkerData = data.wxMarkerData;
-      // that.setData({
-      //   markers: wxMarkerData
-      // });
-      // that.setData({
-      //   latitude: wxMarkerData[0].latitude
-      // });
-      // that.setData({
-      //   longitude: wxMarkerData[0].longitude
-      // });
-      that.updateCenterLocation(wxMarkerData[0].latitude, wxMarkerData[0].longitude)
-      that.setData({
-        startAddress: wxMarkerData[0].address
-      })
-    }
-    BMap.regeocoding({
-      fail: fail,
-      success: success,
-      // iconPath: '../../img/marker_red.png',
-      // iconTapPath: '../../img/marker_red.png'
-    });
+    
+    //请求百度地图api并返回模糊位置
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,//经度
+          longitude: res.longitude//纬度
+        })
+        BMap.regeocoding({
+          location: that.data.latitude + ',' + that.data.longitude,
+          success: function (res) {
+            that.setData({
+              startAddress: res.originalData.result.formatted_address
+            })
+          },
+          fail: function () {
+            wx.showToast({
+              title: '请检查位置服务是否开启',
+            })
+          },
+        });
+      },
+      fail: function () {
+        console.log('小程序得到坐标失败')
+      }
+    })
+  },
+
+  //请求地理位置
+  requestLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        })
+        that.moveTolocation();
+      },
+    })
+  },
+
+  /**
+   * 移动到中心点
+   */
+  moveTolocation: function () {
+    var mapCtx = wx.createMapContext(mapId);
+    mapCtx.moveToLocation();
   },
 
   /**
@@ -69,23 +95,21 @@ Page({
     var mapCtx = wx.createMapContext(mapId);
     mapCtx.getCenterLocation({
       success: function (res) {
-        console.log('getCenterLocation----------------------->');
-        console.log(res);
-        // that.updateCenterLocation(res.latitude, res.longitude);
-        // that.regeocodingAddress();
+        that.updateCenterLocation(res.latitude, res.longitude);
+        that.regeocodingAddress();
         // that.queryMarkerInfo();
       }
     })
   },
 
   /**
- * 更新上传坐标点
+ * 更新中心坐标点
  */
   updateCenterLocation: function (latitude, longitude)   {
     var that = this;
     that.setData({
-      latitude: latitude,
-      longitude: longitude
+      centerLatitude: latitude,
+      centerLongitude: longitude
     })
   },
 
@@ -94,24 +118,12 @@ Page({
    */
   regeocodingAddress: function () {
     var that = this;
-    //不在发布页面，不进行逆地址解析，节省调用次数，腾讯未申请额度前一天只有10000次
-    if (!that.data.showConfirm) {
-      return;
-    }
     //通过经纬度解析地址
     BMap.regeocoding({
-      location: {
-        latitude: that.data.centerLatitude,
-        longitude: that.data.centerLongitude
-      },
+      location: that.data.centerLatitude + ',' + that.data.centerLongitude,
       success: function (res) {
-        console.log(res);
         that.setData({
-          centerAddressBean: res.result,
-          selectAddress: res.result.formatted_addresses.recommend,
-          currentProvince: res.result.address_component.province,
-          currentCity: res.result.address_component.city,
-          currentDistrict: res.result.address_component.district,
+          startAddress: res.originalData.result.formatted_address
         })
       },
       fail: function (res) {
@@ -120,15 +132,16 @@ Page({
     });
   },
 
-  // showSearchInfo: function (data, i) {
-  //   var that = this;
-  //   that.setData({
-  //     rgcData: {
-  //       address: '地址：' + data[i].address + '\n',
-  //       desc: '描述：' + data[i].desc + '\n',
-  //       business: '商圈：' + data[i].business
-  //     }
-  //   });
-  // }
-
+  /**
+   * 点击定位图标，回到当前位置
+   */
+  selfLocationClick: function(){
+    var that = this;
+    //还原默认缩放级别
+    that.setData({
+      scale: defaultScale
+    })
+    //必须请求定位，改变中心点坐标
+    that.requestLocation();
+  }
 })

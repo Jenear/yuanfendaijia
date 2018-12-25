@@ -1,6 +1,6 @@
 <view  class="page_container">
   <view class="map_container">
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" bindregionchange="regionChange">
+    <map class="map" id="map" show-location="true" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" show-location="true" markers="{{markers}}" bindmarkertap="makertap" bindregionchange="regionChange">
       <cover-view class="nodrivertips_container"  hidden='{{!showNoDriverTips}}'>
         <cover-view class="nodrivertips">
           抱歉，您附近暂时没有空闲的司机
@@ -11,7 +11,7 @@
       </cover-view>
       <cover-image class="position_center_img" src="../../img/imgs_main_center@2x.png" />
       <cover-view class="options_container">
-        <cover-image class="position_img" src="../../img/imgs_main_location@2x.png" />
+        <cover-image class="position_img" bindtap='selfLocationClick' src="../../img/imgs_main_location@2x.png" />
         <cover-view class="user_info_img_container">
           <cover-image class="user_info_img" src="../../img/user.png" />
         </cover-view>
