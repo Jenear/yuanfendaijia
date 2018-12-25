@@ -1,0 +1,9 @@
+.card-demo image {
+  border-radius: 50%;
+}
+
+.user_tail_balance {
+  color: "#19be6b";
+  font-size: 30rpx;
+  margin: 10rpx;
+}

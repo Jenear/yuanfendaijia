@@ -19,12 +19,37 @@ Page({
   },
 
   onLoad: function () {
-    var that = this;
+    const that = this;
+    
+    // 实例化百度地图
+    that.initMap();
+
+    //请求百度地图api并返回模糊位置
+    that.initLocation();
+  },
+
+  /**
+   * 点击个人信息图标
+   */
+  userInfoClick: function(){
+    console.log('click user info')
+  },
+
+  /**
+   * 初始化地图
+   */
+  initMap: function(){
     BMap = new bmap.BMapWX({
       ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
     });
-    
-    //请求百度地图api并返回模糊位置
+  },
+
+  /**
+   * 初始化位置信息
+   */
+  initLocation: function(){
+    const that = this;
+
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -54,7 +79,7 @@ Page({
 
   //请求地理位置
   requestLocation: function () {
-    var that = this;
+    const that = this;
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
@@ -71,7 +96,7 @@ Page({
    * 移动到中心点
    */
   moveTolocation: function () {
-    var mapCtx = wx.createMapContext(mapId);
+    const mapCtx = wx.createMapContext(mapId);
     mapCtx.moveToLocation();
   },
 
@@ -79,7 +104,7 @@ Page({
    * 拖动地图回调
    */
   regionChange: function (res) {
-    var that = this;
+    const that = this;
     // 改变中心点位置  
     if (res.type == "end") {
       that.getCenterLocation();
@@ -90,9 +115,9 @@ Page({
      * 得到中心点坐标
      */
   getCenterLocation: function () {
-    var that = this;
+    const that = this;
     //mapId 就是你在 map 标签中定义的 id
-    var mapCtx = wx.createMapContext(mapId);
+    const mapCtx = wx.createMapContext(mapId);
     mapCtx.getCenterLocation({
       success: function (res) {
         that.updateCenterLocation(res.latitude, res.longitude);
@@ -106,7 +131,7 @@ Page({
  * 更新中心坐标点
  */
   updateCenterLocation: function (latitude, longitude)   {
-    var that = this;
+    const that = this;
     that.setData({
       centerLatitude: latitude,
       centerLongitude: longitude
@@ -117,7 +142,7 @@ Page({
    * 逆地址解析
    */
   regeocodingAddress: function () {
-    var that = this;
+    const that = this;
     //通过经纬度解析地址
     BMap.regeocoding({
       location: that.data.centerLatitude + ',' + that.data.centerLongitude,
@@ -136,7 +161,7 @@ Page({
    * 点击定位图标，回到当前位置
    */
   selfLocationClick: function(){
-    var that = this;
+    const that = this;
     //还原默认缩放级别
     that.setData({
       scale: defaultScale

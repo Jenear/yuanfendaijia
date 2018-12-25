@@ -12,7 +12,7 @@
       <cover-image class="position_center_img" src="../../img/imgs_main_center@2x.png" />
       <cover-view class="options_container">
         <cover-image class="position_img" bindtap='selfLocationClick' src="../../img/imgs_main_location@2x.png" />
-        <cover-view class="user_info_img_container">
+        <cover-view class="user_info_img_container" bindtap='userInfoClick' >
           <cover-image class="user_info_img" src="../../img/user.png" />
         </cover-view>
       </cover-view>
