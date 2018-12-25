@@ -1,9 +1,20 @@
+.root{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+
 .card-demo image {
   border-radius: 50%;
 }
 
+.list_container{
+    /* display: block; */
+    margin-top: 15px;
+}
+
 .user_tail_balance {
-  color: "#19be6b";
+  color: #19be6b;
   font-size: 30rpx;
   margin: 10rpx;
 }

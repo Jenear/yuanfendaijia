@@ -1,17 +1,26 @@
-<view style="margin: 16px">默认</view>
-<i-card title="先生/女士" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content">手机号： 18519766670</view>
-    <view slot="footer"><view class='user_tail'>当前可用余额为<span class='user_tail_balance'>0.0</span>元</view></view>
-</i-card>
-
-<view style="margin: 16px">通栏</view>
-<i-card full title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content">内容不错</view>
-    <view slot="footer">尾部内容</view>
-</i-card>
-
-<view style="margin: 16px">自定义图片样式</view>
-<i-card full title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg" i-class="card-demo">
-    <view slot="content">内容不错</view>
-    <view slot="footer">尾部内容</view>
-</i-card>
+<view class="root">
+  <i-card title="先生/女士" i-class="card-demo" extra="更多" full="true" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="content">手机号： 18519766670</view>
+      <view slot="footer"><view class='user_tail'>当前可用余额为<span class='user_tail_balance'>0.0</span>元</view></view>
+  </i-card>
+  
+  <view class="list_container">
+    <i-cell-group>
+        <i-cell title="订单" is-link>
+          <i-icon type="document_fill" slot="icon" />
+        </i-cell>
+        <i-cell title="账户" is-link url="/pages/index/index">
+          <i-icon type="redpacket_fill" slot="icon" />
+        </i-cell>
+        <i-cell title="消息" is-link url="/pages/index/index">
+          <i-icon type="remind_fill" slot="icon" />
+        </i-cell>
+        <i-cell title="客服" is-link url="/pages/index/index">
+          <i-icon type="customerservice_fill" slot="icon" />
+        </i-cell>
+        <i-cell title="设置" is-link url="/pages/index/index">
+          <i-icon type="setup_fill" slot="icon" />
+        </i-cell>
+    </i-cell-group>
+  </view>
+</view>

@@ -1,6 +1,11 @@
 {
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "i-card": "../../components/card/index"
+    "i-card": "../../components/card/index",
+    "i-icon": "../../components/icon/index",
+    "i-cell-group": "../../components/cell-group/index",
+    "i-cell": "../../components/cell/index",
+    "i-panel": "../../components/panel/index",
+    "i-switch": "../../components/switch/index"
   }
 }
