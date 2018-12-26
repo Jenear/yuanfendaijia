@@ -64,10 +64,8 @@ Page({
 
     const url = urlFormatter(SERVER_IP, '/shared/randomCode');
     const { userPhone: tel} = that.data;
-    console.log('tel: ', tel)
     fetchData(url, { tel })
       .then( res => {
-        console.log('getcode: ', res)
         const { data: {data: randomCodeId} } = res;
         that.setData({
           randomCodeId
@@ -117,7 +115,7 @@ Page({
   login: function() {
     const that = this;
     const { openId } = app.globalData;
-
+    
     that.setData({
       isLogin: false,
       btnText: '登录中...'
@@ -133,11 +131,16 @@ Page({
       openId,
      })
       .then( res => {
-        console.log(res);
+        const { data: { map: { USER, token, openId } } } = res;
+        app.globalData.user_info = { ...USER };
+        app.globalData.token = data;
         that.setData({
           isLogin: true,
           btnText: '登录'
         })
+        wx.redirectTo({
+          url: "/pages/index/index"
+        });
       })
       .catch(err => console.log)
   },
