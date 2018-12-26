@@ -5,7 +5,7 @@
         <cover-view class="nodrivertips">
           抱歉，您附近暂时没有空闲的司机
         </cover-view>
-        <cover-view class="nodrivertips contactus">
+        <cover-view class="nodrivertips contactus" bindtap='contactUs'>
           联系客服
         </cover-view> 
       </cover-view>

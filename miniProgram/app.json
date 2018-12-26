@@ -5,7 +5,8 @@
     
     "pages/search/search",
     "pages/regeocoding/regeocoding",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/protocol/protocol"
   ],
   "window": {
     "backgroundTextStyle": "light",

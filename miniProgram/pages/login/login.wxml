@@ -25,7 +25,7 @@
 					<view class="code-area">
 						<label>
 							<text>验证码</text>
-							<input cursor-spacing="{{cursorSpacing}}" bindinput="isCodeNull" bindblur="isCodeNull" type="number" placeholder-style="color:#b2b2b2" placeholder="输入验证码"/>
+							<input cursor-spacing="{{cursorSpacing}}" bindinput="isCode" bindblur="isCode" type="number" placeholder-style="color:#b2b2b2" placeholder="输入验证码"/>
 						</label>
 						<view class="widget-line"></view>
 					</view>
@@ -41,7 +41,7 @@
 		</form>
 		<view class="protocol" wx:if="{{isProtocol}}">
 			点击登录，即表示已阅读并同意
-			<text bindtap="goToProtocal">《用车服务条款》</text>
+			<text bindtap="goToProtocal">《使用规则与代驾协议》</text>
 		</view>
 	</view>
 </view>

@@ -1,3 +1,7 @@
+// 获取app变量
+const app = getApp();
+const { user_phone } = app.globalData;
+// 获取百度地图API
 const bmap = require('../../libs/bmap-wx.min.js');
 const mapId = "map";
 const defaultScale = 14;
@@ -32,7 +36,29 @@ Page({
    * 点击个人信息图标
    */
   userInfoClick: function(){
-    console.log('click user info')
+    console.log('click user info');
+    if (!user_phone) {
+      wx.navigateTo({
+        url: "/pages/login/login"
+      });
+    }else{
+      wx.navigateTo({
+        url: "/pages/user/user"
+      });
+    }   
+  },
+
+  /**
+   * 点击联系客服
+   */
+  contactUs: () => {
+    const service_tel = app.globalData.SERVICE_TEL;
+    wx.makePhoneCall({
+      phoneNumber: service_tel,
+      success: (res) => {
+        console.log('contactus_success: ', res);
+      }
+    })
   },
 
   /**
