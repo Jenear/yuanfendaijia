@@ -146,9 +146,9 @@ Page({
           isLogin: true,
           btnText: '登录'
         })
-        wx.redirectTo({
-          url: "/pages/index/index"
-        });
+        wx.navigateBack({
+          delta: 1,
+        })
       })
       .catch(err => console.log)
   },
