@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
-    
-    "pages/search/search",
+    "pages/suggestion/suggestion",
     "pages/regeocoding/regeocoding",
     "pages/login/login",
     "pages/protocol/protocol"

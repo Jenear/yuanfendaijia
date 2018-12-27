@@ -1,12 +1,23 @@
-
+// 获取app变量
+const app = getApp();
+const { SERVER_IP } = app.globalData;
 
 Page({
+  data: {
+    tel: '',
+    balance: 0.0,
+    name: ''
+  },
+
   onLoad: function(){
-    console.log('user_onload')
-    // if (!user_phone){
-    //   wx.navigateTo({
-    //     url: "/pages/login/login"
-    //   });
-    // }
+    const that = this;
+
+    console.log(app.globalData)
+    const { tel, balance, name } = app.globalData.user_info;
+    that.setData({
+      tel,
+      balance: balance.toFixed(1),
+      name
+    })
   }
 });

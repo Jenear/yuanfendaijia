@@ -93,6 +93,8 @@
 .billtips{
   text-align: center;
   color: #19be6b;
+  font-size: 30rpx;
+  margin-top: 15rpx; 
 }
 
 .grey{

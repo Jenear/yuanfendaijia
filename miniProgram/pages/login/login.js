@@ -11,6 +11,7 @@ Page({
     // smsLoginText: '输入手机号码登录/注册',
     btnText: '登录',
     count: 60,
+    timer: null,
     // 显示代驾协议提示
     isProtocol: true,
     isActive: -1,
@@ -57,6 +58,9 @@ Page({
   getCode: function(){
     const that = this;
     
+    if (that.timer){
+      clearInterval(that.timer);
+    }
     that.setData({
       isActive: 2
     })
@@ -83,17 +87,21 @@ Page({
     const timer = setInterval(function(){
       let currentCount = that.data.count - 1;
       if (currentCount <= 0) {
+        clearInterval(that.timer);
         that.setData({
           isActive: 1,
           count: 60
-        });
-        clearInterval(timer);
+        });     
       }else{
         that.setData({
           count: that.data.count - 1
         })
       }  
     }, 1000)
+
+    that.setData({
+      timer
+    })
   },
 
   /**

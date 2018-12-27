@@ -20,7 +20,7 @@
   </view>
   <view class="rgc_info">
       <i-cell-group>
-        <i-cell title="{{startAddress}}"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
+        <i-cell title="{{startAddress}}" bind:click="handleStartClick"><i-icon type="coordinates" color="#ed3f14" slot="icon" /></i-cell>
         <i-cell i-class="grey"  title="请输入目的地"><i-icon type="coordinates" color="#19be6b" slot="icon" /></i-cell>
       </i-cell-group>
     <view class="billtips">

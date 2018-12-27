@@ -1,7 +1,7 @@
 <view class="root">
-  <i-card title="先生/女士" i-class="card-demo" extra="更多" full="true" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-      <view slot="content">手机号： 18519766670</view>
-      <view slot="footer"><view class='user_tail'>当前可用余额为<span class='user_tail_balance'>0.0</span>元</view></view>
+  <i-card title="{{name}}" i-class="card-demo" extra="更多" full="true" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="content">手机号： {{tel}}</view>
+      <view slot="footer"><view class='user_tail'>当前可用余额为<span class='user_tail_balance'>{{balance}}</span>元</view></view>
   </i-card>
   
   <view class="list_container">

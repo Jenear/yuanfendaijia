@@ -49,6 +49,17 @@ Page({
   },
 
   /**
+   * 点击出发地和目的地
+   */
+  handleStartClick: function(){
+    const that = this;
+
+    wx.navigateTo({
+      url: '/pages/suggestion/suggestion',
+    })
+  },
+
+  /**
    * 点击联系客服
    */
   contactUs: () => {
