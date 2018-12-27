@@ -1,6 +1,13 @@
 <view class="section">
-  <input placeholder="输入关键字"  type="text" bindinput="bindKeyInput"/>
+  <!-- <i-input wx:if="{{point=='start'}}" autofocus value="{{ inputValue }}" placeholder="请输入出发位置" bind:change="bindKeyInput" />
+  <i-input wx:if="{{point=='end'}}" autofocus value="{{ inputValue }}" placeholder="请输入目的地" bind:change="bindKeyInput" /> -->
+  <input wx:if="{{point=='start'}}" placeholder="请输入出发位置" auto-focus type="text" bindinput="bindKeyInput"/>
+  <input wx:if="{{point=='end'}}" placeholder="请输入目的地" auto-focus type="text" bindinput="bindKeyInput"/> 
 </view>
 <view class="sug_info">
-  <text>{{sugData}}</text>
+  <!-- <text>{{sugData}}</text> -->
+  <i-cell-group i-class="list_group" wx:for="{{sugData}}" wx:key="uid">
+    <i-cell i-class="list_item" data-name="{{item.name}}" title="{{item.name}}" bind:click="handleListClick"></i-cell>
+  </i-cell-group>
+  <!-- <view class='list_item_view' bindtap='handleListClick'>{{item.name}}</view> -->
 </view>

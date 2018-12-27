@@ -1,11 +1,11 @@
 // 获取app变量
 const app = getApp();
 
-// 获取百度地图API
-const bmap = require('../../libs/bmap-wx.min.js');
+// 获取百度地图实例
+const { BMap } = require('../../utils/util.js');
+
 const mapId = "map";
 const defaultScale = 14;
-let BMap = null;
 let wxMarkerData = [];
 Page({
   data: {
@@ -17,16 +17,25 @@ Page({
     //地图缩放级别
     scale: defaultScale,
     startAddress: '',
+    endAddress: '',
     rgcData: {},
     showNoDriverTips: true,
     isAppointment: false
   },
 
-  onLoad: function () {
+  onLoad: function (query) {
     const that = this;
-    
-    // 实例化百度地图
-    that.initMap();
+    console.log("query: ",query)
+    const {position, point} = query;
+    if (point === "start"){
+      that.setData({
+        startAddress: position
+      })
+    } else if (point === "end"){
+      that.setData({
+        endAddress: position
+      })
+    }
 
     //请求百度地图api并返回模糊位置
     that.initLocation();
@@ -49,13 +58,24 @@ Page({
   },
 
   /**
-   * 点击出发地和目的地
+   * 点击目的地
    */
   handleStartClick: function(){
     const that = this;
 
     wx.navigateTo({
-      url: '/pages/suggestion/suggestion',
+      url: '/pages/suggestion/suggestion?point=start',
+    })
+  },
+
+  /**
+ * 点击目的地
+ */
+  handleEndClick: function () {
+    const that = this;
+
+    wx.navigateTo({
+      url: '/pages/suggestion/suggestion?point=end',
     })
   },
 
@@ -67,15 +87,6 @@ Page({
     wx.makePhoneCall({
       phoneNumber: service_tel
     })
-  },
-
-  /**
-   * 初始化地图
-   */
-  initMap: function(){
-    BMap = new bmap.BMapWX({
-      ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
-    });
   },
 
   /**

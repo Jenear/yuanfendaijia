@@ -1,3 +1,14 @@
+/**
+ * 百度地图实例
+*/
+const bmap = require('../libs/bmap-wx.min.js');
+const BMap = new bmap.BMapWX({
+  ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
+});
+
+/**
+ * 格式化时间
+*/
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -54,10 +65,31 @@ const checkMobile = phoneNumber => /^1[3|4|5|7|8]\d{9}$/.test(phoneNumber);
  */
 const checkPhoneCode = phoneCode => /\d{6}/.test(phoneCode);
 
+/**
+ * 防抖
+ */
+const debounce = function(fn, wait) {
+  let timer = null;
+  return function (...args) {
+    return new Promise((resolve, reject) => {
+      const context = this
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+      timer = setTimeout(function () {
+        resolve(fn.apply(context, args))
+      }, wait)
+    }) 
+  }
+}
+
 module.exports = {
   formatTime,
   urlFormatter,
   checkMobile,
   checkPhoneCode,
-  fetchData
+  fetchData,
+  BMap,
+  debounce
 }

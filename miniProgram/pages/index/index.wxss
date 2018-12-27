@@ -101,6 +101,10 @@
   color: #bbbec4;
 }
 
+.black{
+  color: black;
+}
+
 .normal_button{
   margin-bottom: 20rpx;
 }

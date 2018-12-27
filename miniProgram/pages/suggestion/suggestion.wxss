@@ -3,10 +3,31 @@ page {
 }
 
 input {
-    margin: 10px 10px;
+    margin: 20rpx 20rpx;
+    padding: 10rpx;
+    border-radius: 10rpx;
     background-color: #fff;
+    font-size: 30rpx
 }
 
 .sug_info {
     margin: 15px 10px;
+    /* background-color: white */
+}
+
+.list_item {
+  margin-bottom: 2rpx;
+  height: 25rpx
+}
+
+.list_group {
+  border-radius: 15rpx;
+}
+
+.list_item_view{
+  margin: 0;
+  /* background-color: white;  */
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
 }
