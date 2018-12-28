@@ -142,15 +142,17 @@ Page({
         const { data: { map: { USER, token, openId } } } = res;
         app.globalData.user_info = { ...USER };
         app.globalData.token = data;
-        that.setData({
-          isLogin: true,
-          btnText: '登录'
-        })
         wx.navigateBack({
           delta: 1,
         })
       })
       .catch(err => console.log)
+      .finally(()=>{
+        that.setData({
+          isLogin: true,
+          btnText: '登录'
+        })
+      })
   },
 
   /**

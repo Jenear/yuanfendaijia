@@ -16,16 +16,55 @@
     position: relative;
 }
 
-/* 地图中心点图标 */
-.position_center_img {
-  align-self:center;
-  width:40rpx;
-  height:80rpx;
+.position_center_container {
+  align-self: center;
   position: absolute;
   left: 50%;
   top: 50%;
   margin-top: -80rpx; /* img高度的一半*/
-  margin-left: -20rpx;/* img宽度的一半*/
+  margin-left: -20rpx; /* img宽度的一半*/
+}
+
+/* 地图中心点图标 */
+.position_center_img {
+  width:40rpx;
+  height:80rpx;
+}
+
+/* 地图中心点图标上方说明文字 */
+.position_center_img_tips1 {
+  align-self: center;
+  position: absolute;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  left: 50%;
+  top: 50%;
+  background-color: #1c2438;
+  color: white;
+  font-size: 25rpx;
+  height: 40rpx;
+  min-width: 100rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top: -140rpx; /* img高度的一半*/
+  margin-left: -50rpx; /* img宽度的一半*/
+}
+.position_center_img_tips {
+  align-self: center;
+  position: absolute;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  left: 50%;
+  top: 50%;
+  background-color: #1c2438;
+  color: white;
+  font-size: 25rpx;
+  height: 40rpx;
+  min-width: 100rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top: -140rpx; /* img高度的一半 */
+  margin-left: -50rpx; /* img宽度的一半 */
 }
 
 /* 无空闲司机提示 */

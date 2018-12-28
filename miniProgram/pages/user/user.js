@@ -12,7 +12,6 @@ Page({
   onLoad: function(){
     const that = this;
 
-    console.log(app.globalData)
     const { tel, balance, name } = app.globalData.user_info;
     that.setData({
       tel,

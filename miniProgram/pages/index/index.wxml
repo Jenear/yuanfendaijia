@@ -9,7 +9,10 @@
           联系客服
         </cover-view> 
       </cover-view>
-      <cover-image class="position_center_img" src="../../img/imgs_main_center@2x.png" />
+      <cover-view wx:if="{{center_img_status===1}}" class='position_center_img_tips'>加载中...</cover-view>
+      <cover-view class="position_center_container" >      
+        <cover-image class='position_center_img' src="../../img/imgs_main_center@2x.png" />
+      </cover-view>
       <cover-view class="options_container">
         <cover-image class="position_img" bindtap='selfLocationClick' src="../../img/imgs_main_location@2x.png" />
         <cover-view class="user_info_img_container" bindtap='userInfoClick' >

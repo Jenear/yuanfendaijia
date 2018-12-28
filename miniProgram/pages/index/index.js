@@ -14,10 +14,12 @@ Page({
     longitude: '',
     centerLongitude: '',
     centerLatitude: '',
-    //地图缩放级别
+    // 地图缩放级别
     scale: defaultScale,
     startAddress: '',
     endAddress: '',
+    // 中心图标状态
+    center_img_status: 0,
     rgcData: {},
     showNoDriverTips: true,
     isAppointment: false
@@ -161,7 +163,8 @@ Page({
      */
   getCenterLocation: function () {
     const that = this;
-    //mapId 就是你在 map 标签中定义的 id
+
+    // mapId 就是你在 map 标签中定义的 id
     const mapCtx = wx.createMapContext(mapId);
     mapCtx.getCenterLocation({
       success: function (res) {
@@ -179,7 +182,7 @@ Page({
     const that = this;
     that.setData({
       centerLatitude: latitude,
-      centerLongitude: longitude
+      centerLongitude: longitude,
     })
   },
 
@@ -188,15 +191,24 @@ Page({
    */
   regeocodingAddress: function () {
     const that = this;
+    
+    // 修改中心图标状态
+    that.setData({
+      center_img_status: 1,
+    })
     //通过经纬度解析地址
     BMap.regeocoding({
       location: that.data.centerLatitude + ',' + that.data.centerLongitude,
       success: function (res) {
         that.setData({
-          startAddress: res.originalData.result.formatted_address
+          startAddress: res.originalData.result.formatted_address,
+          center_img_status: 0,
         })
       },
       fail: function (res) {
+        that.setData({
+          center_img_status: 0,
+        })
         console.log(res);
       }
     });
