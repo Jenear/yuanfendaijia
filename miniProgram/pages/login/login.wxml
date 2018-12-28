@@ -1,6 +1,7 @@
 <view>
 	<view class="login">
 		<view class="login-title">{{loginTitle}}</view>
+    <i-toast id="toast" />
 		<form report-submit="true" bindsubmit="onLoginSubmitTap">
 			<view class="quick-login" wx:if="{{isQuickLogin}}">
 			  <label>
@@ -25,7 +26,7 @@
 					<view class="code-area">
 						<label>
 							<text>验证码</text>
-							<input cursor-spacing="{{cursorSpacing}}" bindinput="isCode" bindblur="isCode" type="number" placeholder-style="color:#b2b2b2" placeholder="输入验证码"/>
+							<input cursor-spacing="{{cursorSpacing}}" bindinput="isCode" bindblur="isCode" type="number" placeholder-style="color:#b2b2b2" maxlength="6" placeholder="输入验证码"/>
 						</label>
 						<view class="widget-line"></view>
 					</view>

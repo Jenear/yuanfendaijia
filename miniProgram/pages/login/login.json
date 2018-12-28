@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "手机验证"
+  "navigationBarTitleText": "手机验证",
+  "usingComponents": {
+    "i-toast": "../../components/toast/index"
+  }
 }

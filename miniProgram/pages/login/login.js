@@ -1,3 +1,4 @@
+const { $Toast } = require('../../components/base/index');
 const { checkMobile, checkPhoneCode, fetchData, urlFormatter } = require('../../utils/util.js');
 // 获取app变量
 const app = getApp();
@@ -139,20 +140,29 @@ Page({
       openId,
      })
       .then( res => {
-        const { data: { map: { USER, token, openId } } } = res;
-        app.globalData.user_info = { ...USER };
-        app.globalData.token = data;
-        wx.navigateBack({
-          delta: 1,
-        })
+        const { data: { map: { USER, token, openId }, success, message } } = res;
+        if(success){
+          app.globalData.user_info = { ...USER };
+          app.globalData.token = data;
+          wx.navigateBack({
+            delta: 1,
+            isLogin: true,
+            btnText: '登录',
+          })
+        }else{
+          $Toast({
+            content: message,
+            type: 'error'
+          });
+
+          that.setData({
+            isLogin: true,
+            btnText: '登录'
+          })
+        }
+        
       })
-      .catch(err => console.log)
-      .finally(()=>{
-        that.setData({
-          isLogin: true,
-          btnText: '登录'
-        })
-      })
+      .catch(console.log)
   },
 
   /**

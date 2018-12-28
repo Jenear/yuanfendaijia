@@ -27,7 +27,6 @@ Page({
 
   onLoad: function (query) {
     const that = this;
-    console.log("query: ",query)
     const {position, point} = query;
     if (point === "start"){
       that.setData({
@@ -48,7 +47,7 @@ Page({
    */
   userInfoClick: function(){
     const { token } = app.globalData;
-    if (!token) {
+    if (!token||true) {
       wx.navigateTo({
         url: "/pages/login/login"
       });
